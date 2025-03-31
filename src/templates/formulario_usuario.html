@@ -24,15 +24,14 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="lista_productos.html">Listar Productos</a>
+                <a class="dropdown-item" href="formulario_producto.html">Crear Producto</a>
                 <a class="dropdown-item" href="formulario_factura.html">Generar Factura</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="formulario_cliente.html">Crear Cliente</a>
-                <a class="dropdown-item" href="formulario_usuario.html">Crear Usuario</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="inicio_sesion.html">Iniciar Sesión</a>
               </div>
             </li>
-
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -40,47 +39,54 @@
           </form>
         </div>
     </nav>
-    <h2>Crear Producto</h2>   
+    <h2>Crear Usuario</h2>   
     <form>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="descripcion">Descripción</label>
-            <input type="text" class="form-control" id="descripcion" placeholder="Describa el producto (dato único)">
+            <label for="nombres_usuario">Nombres</label>
+            <input type="text" class="form-control" id="nombres_usuario" placeholder="Ingrese los nombres (dato único)">
           </div>
           <div class="form-group col-md-6">
-            <label for="cantidad_inventario">Cantidad Inventario</label>
-            <input type="number" class="form-control" id="cantidad_inventario">
+            <label for="cantidad_inventario">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos_usuario" placeholder="Ingrese los apellidos (dato único)">
           </div>
           <div class="form-group col-md-6">
-            <label for="precio_unitario">Precio Unitario</label>
-            <input type="number" class="form-control" id="precio_unitario">
+            <label for="numero_usuario">Numero de usuario</label>
+            <input type="int" class="form-control" id="numero_usuario" placeholder="Ingrese el numero">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="numero_cliente">Correo electronico del usuario</label>
+            <input type="text" class="form-control" id="correo_usuario" placeholder="Ingrese el correo">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="unidad_medida">Unidad de Medida</label>
-            <select id="unidad_medida" class="form-control">
+            <label for="documento_usuario">Tipo de documento</label>
+            <select id="documento_usuario" class="form-control">
               <option selected>Por favor seleccione...</option>
-              <option value="GRS">GRS</option>
-              <option value="UND">UND</option>
+              <option value="CC">Cedula Ciudadania</option>
+              <option value="CE">Cedula Extranjeria</option>
             </select>
           </div>
-          <div class="form-group col-md-4">
-            <label for="categoria">Categoria</label>
-            <select id="categoria" class="form-control">
-              <option selected>Por favor seleccione...</option>
-              <option value="1">Alimentos</option>
-              <option value="2">Ropa</option>
-            </select>
+          <div class=class="form-group col-md-6">
+            <label for="documento_usuario">Numero de documento</label>
+            <input type="numer" class="form-control" id="documento_usuario" placeholder="Ingrese el numero de documento (dato único)">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="nacimiento_usuario">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="nacimiento_usuario">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="contraseña_usuario">Contraseña</label>
+            <input type="password" class="form-control" id="contraseña_usuario" placeholder="Ingrese la contraseña">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="numero_cliente">Confirmar contraseña</label>
+            <input type="password" class="form-control" id="contraseña_usuario" placeholder="Ingrese la contraseña nuevamente">
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
       </form>  
 </body>
 </html>
-
-
-
-
-
