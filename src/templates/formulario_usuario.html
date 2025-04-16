@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+    <h2>Crear Usuario</h2>   
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombres_usuario">Nombres</label>
+            <input type="text" class="form-control" id="nombres_usuario" placeholder="Ingrese los nombres (dato único)">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="cantidad_inventario">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos_usuario" placeholder="Ingrese los apellidos (dato único)">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="numero_usuario">Numero de usuario</label>
+            <input type="int" class="form-control" id="numero_usuario" placeholder="Ingrese el numero">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="numero_cliente">Correo electronico del usuario</label>
+            <input type="text" class="form-control" id="correo_usuario" placeholder="Ingrese el correo">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="documento_usuario">Tipo de documento</label>
+            <select id="documento_usuario" class="form-control">
+              <option selected>Por favor seleccione...</option>
+              <option value="CC">Cedula Ciudadania</option>
+              <option value="CE">Cedula Extranjeria</option>
+            </select>
+          </div>
+          <div class=class="form-group col-md-6">
+            <label for="documento_usuario">Numero de documento</label>
+            <input type="numer" class="form-control" id="documento_usuario" placeholder="Ingrese el numero de documento (dato único)">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="nacimiento_usuario">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="nacimiento_usuario">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="contraseña_usuario">Contraseña</label>
+            <input type="password" class="form-control" id="contraseña_usuario" placeholder="Ingrese la contraseña">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="numero_cliente">Confirmar contraseña</label>
+            <input type="password" class="form-control" id="contraseña_usuario" placeholder="Ingrese la contraseña nuevamente">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>  
+{% endblock contenido %}

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+    <h2>Inicio sesion</h2>   
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="unidad_medida">Tipo de documento</label>
+            <select id="unidad_medida" class="form-control">
+              <option selected>Por favor seleccione...</option>
+              <option value="CC">Cedula Ciudadania</option>
+              <option value="CE">Cedula Extranjeria</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="documento_usuario">Documento del usuario</label>
+            <input type="int" class="form-control" id="documento_usuario" placeholder="Ingrese el numero">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="contraseña_usuario">Contraseña</label>
+            <input type="password" class="form-control" id="contraseña_usuario" placeholder="Ingrese la contraseña">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+      </form>  
+{% block contenido %}
+{% endblock contenido %}
