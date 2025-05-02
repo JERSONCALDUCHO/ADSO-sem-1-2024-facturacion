@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
-    <h2>Inicio sesion</h2>   
+
+{% block contenido %}
+    <h2>{{ titulo }}</h2>   
     <form>
         <div class="form-row">
           <div class="form-group col-md-4">
@@ -21,5 +23,4 @@
         </div>
         <button type="submit" class="btn btn-primary">Iniciar sesion</button>
       </form>  
-{% block contenido %}
 {% endblock contenido %}
