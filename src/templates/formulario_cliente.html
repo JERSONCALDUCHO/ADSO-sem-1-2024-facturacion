@@ -89,7 +89,7 @@
         }
         function validarNumDocumentoCliente() {
           let campoNumDocumentoCliente = document.getElementById("numero_Usuario");
-          let valorNumDocumentoCliente = campoNumDocumentoUsuario.value;
+          let valorNumDocumentoCliente = campoNumDocumentoCliente.value;
           let errorNumDocumentoCliente = document.getElementById("errorNumDocumentoCliente");
           var expresionregular = new RegExp("[0-9](8,11)")
           if (expresionregular.test(valorNumDocumentoCliente)) {
