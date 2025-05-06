@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+<!--Se crea validacion para los campos de nombre, apellido, numero telefonico y numero de documento-->
+    <h2>{{ titulo }}</h2>   
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombres_cliente">Nombres</label>
+            <input type="text" class="form-control" id="nombres_clientes" placeholder="Ingrese los nombres (dato único)"> 
+            <span class="alert alert-danger" role="alert" id="errorNombreCliente" style="display: none;">Ingrese los nombres del cliente</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="apellidos_cliente">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos_cliente" placeholder="Ingrese los apellidos (dato único)"> 
+            <span class="alert alert-danger" role="alert" id="errorApellidoCliente" style="display: none;">Ingrese los apellidos del cliente</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="numero_cliente">Numero del cliente</label>
+            <input type="number" readonly class="form-control" id="numero_cliente" placeholder="Ingrese el numero"> 
+            <span class="alert alert-danger" role="alert" id="errorNumeroCliete" style="display: none;">Ingrese el numero telefonico del cliente</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="numero_cliente">Correo electronico del cliente</label>
+            <input type="text" class="form-control" id="correo_cliente" placeholder="Ingrese el correo">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="documento_cliente">Tipo de documento</label>
+            <select id="documento_cliente" class="form-control">
+              <option selected>Por favor seleccione...</option>
+              <option value="CC">Cedula Ciudadania</option>
+              <option value="CE">Cedula Extranjeria</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="num_documento_cliente">Numero de documento</label>
+            <input type="number" readonly class="form-control" id="numero_documento" placeholder="Ingrese el numero de documento (dato único)"> 
+            <span class="alert alert-danger" role="alert" id="errorNumDocumentoCliente" style="display: none;">Ingrese el numero del documento</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="nacimiento_cliente">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="nacimiento_cliente">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>  
+  <script type="text/javascript">
+        function validarNonmbreCliente() {
+          let campoNombreCliente = document.getElementById("nombres_cliente");
+          let valorNombreCliente = campoNombreCliente.value;
+          let errorNombreCliente = document.getElementById("errorNombreCliente");
+          var expresionregular = new RegExp("[A-Z](100)")
+          if (expresionregular.test(valorNonmbreCliente)) {
+            console.log("Cumple");
+            errorNombreCliente.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorNombreCliente.style.display = 'block';
+          }
+        }
+        function validarApellidoCliente() {
+          let campoApellidoCliente = document.getElementById("apellidos_cliente");
+          let valorApellidoCliente = campoApellidoCliente.value;
+          let errorApellidoCliente = document.getElementById("errorApellidoCliente");
+          var expresionregular = new RegExp("[A-Z](100)")
+          if (expresionregular.test(valorApellidoCliente)) {
+            console.log("Cumple");
+            errorApellidoCliente.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorApellidoCliente.style.display = 'block';
+          }
+        }
+        function validarNumeroCliente() {
+          let campoNumeroCliente = document.getElementById("numero_cliente");
+          let valorNumeroCliente = campoNumeroCliente.value;
+          let errorNumeroCliente = document.getElementById("errorNumeroCliente");
+          var expresionregular = new RegExp("[0-9](1,11)")
+          if (expresionregular.test(valorNumeroCliente)) {
+            console.log("Cumple");
+            errorNumeroCliente.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorNumeroCliente.style.display = 'block';
+          }
+        }
+        function validarNumDocumentoCliente() {
+          let campoNumDocumentoCliente = document.getElementById("numero_Usuario");
+          let valorNumDocumentoCliente = campoNumDocumentoUsuario.value;
+          let errorNumDocumentoCliente = document.getElementById("errorNumDocumentoCliente");
+          var expresionregular = new RegExp("[0-9](8,11)")
+          if (expresionregular.test(valorNumDocumentoCliente)) {
+            console.log("Cumple");
+            errorNumDocumentoCliente.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorNumDocumentoCliente.style.display = 'block';
+          }
+        }
+  </script>
+{% endblock contenido %}
