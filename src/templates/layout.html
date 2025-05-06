@@ -1,4 +1,5 @@
-  <!DOCTYPE html>
+<!--Se crea validacion de ciertos campos para los formularios de producto, usuario y cliente-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,25 +25,46 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Opciones
+                Usuarios
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/lista_productos">Listar Productos</a>
-                <a class="dropdown-item" href="/formulario_producto">Crear Producto</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/formulario_cliente">Crear cliente</a>
                 <a class="dropdown-item" href="/formulario_usuario">Crear Usuario</a>
-                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/inicio_sesion">Iniciar Sesión</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Productos
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/formulario_producto">Crear Producto</a>
+                <a class="dropdown-item" href="/lista_productos">Listar Productos</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Clientes
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/formulario_cliente">Crear cliente</a>
+                <a class="dropdown-item" href="/lista_clientes">Ver clientes</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Factura
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/formulario_factura">Generar factura</a>
               </div>
             </li>
-
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
     </nav>
     {% block contenido %}
