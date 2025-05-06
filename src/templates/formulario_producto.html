@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+<!--Se crea validacion para los campos de descripcion, cantidad y precio-->
+    <h2>{{ titulo }}</h2>   
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="codigo">Codigo</label>
+            <input type="text" class="form-control" id="codigo" placeholder="Ejemplo: AAA000000" onblur="validarCodigo()"> 
+            <span class="alert alert-danger" role="alert" id="errorCodigo" style="display: none;">El codigo no cumple los requisitos</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="descripcion">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" placeholder="Describa el producto (dato único)"> 
+            <span class="alert alert-danger" role="alert" id="errorDescripcion" style="display: none;">Ingrese la descripcion</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="cantidad_inventario">Cantidad Inventario</label>
+            <input type="number" class="form-control" id="cantidad_inventario"> 
+            <span class="alert alert-danger" role="alert" id="errorCantidadProducto" style="display: none;">Ingrese la cantidad del producto</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="precio_unitario">Precio Unitario</label>
+            <input type="number" class="form-control" id="precio_unitario"> 
+            <span class="alert alert-danger" role="alert" id="errorPrecio" style="display: none;">Ingrese el precio del producto</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="unidad_medida">Unidad de Medida</label>
+            <select id="unidad_medida" class="form-control">
+              <option selected>Por favor seleccione...</option>
+              <option value="GRS">GRS</option>
+              <option value="UND">UND</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="categoria">Categoria</label>
+            <select id="categoria" class="form-control">
+              <option selected>Por favor seleccione...</option>
+              <option value="1">Alimentos</option>
+              <option value="2">Ropa</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>  
+      <script type="text/javascript">
+        function validarCodigo() {
+          let campoCodigo = document.getElementById("codigo");
+          let valorCodigo = campoCodigo.value;
+          let errorCodigo = document.getElementById("errorCodigo");
+          var expresionregular = new RegExp("[A-Z]{3}[0-9]{1,}")
+          if (expresionregular.test(valorCodigo)) {
+            console.log("Cumple");
+            errorCodigo.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorCodigo.style.display = 'block';
+          }
+        }
+        function validarDescripcion() {
+          let campoDescripcion = document.getElementById("descripcion");
+          let valorDescripcion = campoDescripcion.value;
+          let errorDescripcion = document.getElementById("errorDescripcion");
+          var expresionregular = new RegExp("[A-Z]{300}")
+          if (expresionregular.test(valorDescripcion)) {
+            console.log("Cumple");
+            errorDescripcion.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorDescripcion.style.display = 'block';
+          }
+        }
+        function validarCantidadProducto() {
+          let campoCantidadProducto = document.getElementById("cantidad_inventario");
+          let valorCantidadProducto = campoCantidadProducto.value;
+          let errorCantidadProducto = document.getElementById("errorCantidadProducto");
+          var expresionregular = new RegExp("[0-9]{1,}")
+          if (expresionregular.test(valorCantidadProducto)) {
+            console.log("Cumple");
+            errorCantidadProducto.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorCantidadProducto.style.display = 'block';
+          }
+        }
+        function validarPrecio() {
+          let campoPrecio = document.getElementById("precio_unitario");
+          let valorPrecio = campoPrecio.value;
+          let errorPrecio = document.getElementById("errorPrecio");
+          var expresionregular = new RegExp("[0-9]{1,}")
+          if (expresionregular.test(valorPrecio)) {
+            console.log("Cumple");
+            errorPrecio.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorPrecio.style.display = 'block';
+          }
+        }
+      </script>
+{% endblock contenido %}
