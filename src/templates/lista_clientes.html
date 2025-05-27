@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+<h2>{{ titulo }}</h2>   
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#Cliente</th>
+        <th scope="col">Nombre completo</th>
+        <th scope="col">Tipo de documento</th>
+        <th scope="col">Numero documento</th>
+        <th scope="col">Numero telefonico</th>
+        <th scope="col">Corrreo electronico</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button type="button" class="btn btn-success">Editar</button>
+          <button type="button" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock contenido %}
