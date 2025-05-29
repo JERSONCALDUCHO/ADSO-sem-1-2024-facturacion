@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+    <h2>{{ titulo }}</h2>   
+    <form>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Fecha y hora</td>
+            <td>Cliente</td>
+          </tr>
+          <tr>
+            <td><input type="datetime-local" class="form-control" id="producto"></td>
+            <td>
+              <select id="producto" class="form-control">
+                <option selected>Seleccione el cliente</option>
+                <option value="cliente_1">Cliente 1</option>
+                <option value="cliente_2">Cliente 2</option>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><label for="producto">Producto</label></td>
+            <td><label for="cantidad_producto">Cantidad</label></td>
+            <td>Valor</td>
+          </tr>
+          <tr>
+            <td>
+              <select id="producto" class="form-control">
+                <option selected>Seleccione el producto</option>
+                <option value="producto_1">Pan tajado bolsa 200 grs</option>
+                <option value="producto_2">Carne cerdo costilla</option>
+            </td>
+            <td><input type="float" class="form-control" id="producto"></td>
+            <td>   </td>
+            <td><button type="submit" class="btn btn-primary">Eliminar</button></td>
+          </tr> 
+          <tr>
+            <td>
+              <button type="submit" class="btn btn-primary">Añadir producto</button>
+            </td>
+          </tr>
+          <tr>
+            <td>  </td>
+            <td>Sub total</td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td>  </td>
+            <td>Iva</td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td>  </td>
+            <td>Total</td>
+            <td>  </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>  
+{% endblock contenido %}

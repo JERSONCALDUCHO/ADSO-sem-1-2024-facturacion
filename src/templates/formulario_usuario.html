@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+<!--Se crea validacion para los campos de nombre, apellido, numero telefonico y numero de documento-->
+    <h2>{{ titulo }}</h2>   
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombres_usuario">Nombres</label>
+            <input type="text" class="form-control" id="nombres_usuario" placeholder="Ingrese los nombres (dato único)"> 
+            <span class="alert alert-danger" role="alert" id="errorNombreUsuario" style="display: none;">Ingrese los nombres del usuario</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="cantidad_inventario">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos_usuario" placeholder="Ingrese los apellidos (dato único)"> 
+            <span class="alert alert-danger" role="alert" id="errorApellidoUsuario" style="display: none;">Ingrese los apellidos del usuario</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="numero_usuario">Numero de usuario</label>
+            <input type="number" class="form-control" id="numero_usuario" placeholder="Ingrese el numero"> 
+            <span class="alert alert-danger" role="alert" id="errorNumeroUsuario" style="display: none;">Ingrese el numero telefonico del usuario</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="numero_cliente">Correo electronico del usuario</label>
+            <input type="text" class="form-control" id="correo_usuario" placeholder="Ingrese el correo">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="tipo_documento_usuario">Tipo de documento</label>
+            <select id="tipo_documento_usuario" class="form-control">
+              <option selected>Por favor seleccione...</option>
+              <option value="CC">Cedula Ciudadania</option>
+              <option value="CE">Cedula Extranjeria</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="num_documento_usuario">Numero de documento</label>
+            <input type="number" class="form-control" id="num_documento_usuario" placeholder="Ingrese el numero de documento (dato único)"> 
+            <span class="alert alert-danger" role="alert" id="errorNumDocumentoUsuario" style="display: none;">Ingrese el numero del documento</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="nacimiento_usuario">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="nacimiento_usuario">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="contraseña_usuario">Contraseña</label>
+            <input type="password" class="form-control" id="contraseña_usuario" placeholder="Ingrese la contraseña">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="confirmacion_contraseña">Confirmar contraseña</label>
+            <input type="password" class="form-control" id="confirmacion_contraseña" placeholder="Ingrese la contraseña nuevamente">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>  
+      <script type="text/javascript">
+        function validarNonmbreUsuario() {
+          let campoNombreUsuario = document.getElementById("nombres_usuario");
+          let valorNombreUsuario = campoNombreUsuario.value;
+          let errorNombreUsuario = document.getElementById("errorNombreUsuario");
+          var expresionregular = new RegExp("[A-Z]{100}")
+          if (expresionregular.test(valorNonmbreUsuario)) {
+            console.log("Cumple");
+            errorNombreUsuario.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorNombreUsuario.style.display = 'block';
+          }
+        }
+        function validarApellidoUsuario() {
+          let campoApellidoUsuario = document.getElementById("apellidos_Usuario");
+          let valorApellidoUsuario = campoApellidoUsuario.value;
+          let errorApellidoUsuario = document.getElementById("errorApellidoUsuario");
+          var expresionregular = new RegExp("[A-Z]{100}")
+          if (expresionregular.test(valorApellidoUsuario)) {
+            console.log("Cumple");
+            errorApellidoUsuario.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorApellidoUsuario.style.display = 'block';
+          }
+        }
+        function validarNumeroUsuario() {
+          let campoNumeroUsuario = document.getElementById("numero_Usuario");
+          let valorNumeroUsuario = campoNumeroUsuario.value;
+          let errorNumeroUsuario = document.getElementById("errorNumeroCliente");
+          var expresionregular = new RegExp("[0-9]{1,11}")
+          if (expresionregular.test(valorNumeroUsuario)) {
+            console.log("Cumple");
+            errorNumeroUsuario.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorNumeroUsuario.style.display = 'block';
+          }
+        }
+        function validarNumDocumentoUsuario() {
+          let campoNumDocumentoUsuario = document.getElementById("numero_Usuario");
+          let valorNumDocumentoUsuario = campoNumDocumentoUsuario.value;
+          let errorNumDocumentoUsuario = document.getElementById("errorNumDocumentoUsuario");
+          var expresionregular = new RegExp("[0-9]{8,11}")
+          if (expresionregular.test(valorNumDocumentoUsuario)) {
+            console.log("Cumple");
+            errorNumDocumentoUsuario.style.display = 'none';
+          } else {
+            console.log("No cumple");
+            errorNumDocumentoUsuario.style.display = 'block';
+          }
+        }
+  </script>
+{% endblock contenido %}
