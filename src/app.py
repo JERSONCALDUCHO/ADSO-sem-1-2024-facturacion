@@ -9,7 +9,7 @@ app = Flask (__name__)
 if __name__ == '__main__':
     app.run(debug=True)
 
-engine = create_engine("mysql+pymysql://root@localhost/factura_001?charset=utf8mb4")
+engine = create_engine("mysql+pymysql://root@localhost/factura_prueba?charset=utf8mb4")
 
 connection = engine.connect()
 
