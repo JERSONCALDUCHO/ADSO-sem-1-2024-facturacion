@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 import pymysql
 
 app = Flask (__name__)
@@ -17,7 +18,8 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 Base = declarative_base()
-Base.metadate.bind = engine
+metadata = Base.metadata
+Base.metadata.bind = engine
 
 
 @app.route('/')
@@ -40,8 +42,16 @@ def formulario_usuario():
 def formulario_producto():
     if request.method == 'POST':
         codigo = request.form.get('codigo')
-        print ("Entro por POST")
-        print(codigo)
+        descripcion = request.form.get('descripcion')
+        cantidad_inventario = request.form.get('cantidad_inventario')        
+        precio_unitario = request.form.get('precio_unitario')
+        unidad_medida = request.form.get('unidad_medida')
+        categoria = request.form.get('categoria')
+        producto = Productos(codigo,descripcion,cantidad_inventario,precio_unitario,unidad_medida,categoria)
+        Productos.crear_producto(producto)
+        print ("Entró por POST")
+        print(codigo)   
+    categorias = Categorias.traer_categorias() 
     return render_template('formulario_producto.html',titulo='Crear Producto')
 
 @app.route('/formulario_factura')
@@ -61,14 +71,34 @@ class Productos(Base):
     id = Column (Integer, primary_key=True)
     codigo = Column (String(9), unique=True, nullable=False)
     descripcion = Column (String(300), unique=True)
-    valor_unitario = Column (Float(10,8))
-    unidad_medida = Column (String(3), unique=True, nullable=False)
-    cantidad_stock = Column (Float(10,8))
+    cantidad_inventario = Column (Float(10,8))
+    precio_unitario = Column (Float(10,8))
+    unidad_medida = Column (String(3), nullable=False)
     categoria = Column (Integer, nullable=False)
+
+    def __init__(self,codigo,descripcion,cantidad_inventario,precio_unitario,unidad_medida,categoria):
+        self.codigo = codigo
+        self.descripcion = descripcion
+        self.cantidad_inventario = cantidad_inventario
+        self.precio_unitario = precio_unitario
+        self.unidad_medida = unidad_medida
+        self.categoria = categoria
+
+    def crear_producto(producto):
+        producto = session.add(producto)
+        session.commit()
+        return producto
 
 class Categoria(Base):
     __tablename__: "categorias"
     id = Column(Integer, primary_key=True)
     nombre_categoria = Column(String(300), unique=True, nullable=False)
+
+    def __init__(self, nombre_categoria):
+        self.nombre_categoria = nombre_categoria
+
+    def traer_categorias():
+        categorias = session.query(Categorias).all()
+        return categorias
     
-Base.metadate.create_all(engine)
+Base.metadata.create_all(engine)
