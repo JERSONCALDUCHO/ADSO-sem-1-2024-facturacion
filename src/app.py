@@ -67,7 +67,7 @@ def lista_clientes():
     return render_template('lista_clientes.html',titulo='Ver clientes')
 
 class Productos(Base):
-    __tablename__: "productos"
+    __tablename__ = "productos"
     id = Column (Integer, primary_key=True)
     codigo = Column (String(9), unique=True, nullable=False)
     descripcion = Column (String(300), unique=True)
@@ -90,7 +90,7 @@ class Productos(Base):
         return producto
 
 class Categorias(Base):
-    __tablename__: "categorias"
+    __tablename__ = "categorias"
     id = Column(Integer, primary_key=True)
     nombre_categoria = Column(String(300), unique=True, nullable=False)
 
