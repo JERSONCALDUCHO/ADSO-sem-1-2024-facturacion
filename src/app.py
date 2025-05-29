@@ -89,7 +89,7 @@ class Productos(Base):
         session.commit()
         return producto
 
-class Categoria(Base):
+class Categorias(Base):
     __tablename__: "categorias"
     id = Column(Integer, primary_key=True)
     nombre_categoria = Column(String(300), unique=True, nullable=False)
