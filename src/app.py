@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker,  declarative_base
 import pymysql
 
 app = Flask (__name__)
@@ -18,7 +17,6 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 Base = declarative_base()
-metadata = Base.metadata
 Base.metadata.bind = engine
 
 
@@ -52,7 +50,7 @@ def formulario_producto():
         print ("Entró por POST")
         print(codigo)   
     categorias = Categorias.traer_categorias() 
-    return render_template('formulario_producto.html',titulo='Crear Producto')
+    return render_template('formulario_producto.html',titulo='Crear Producto',categorias = categorias)
 
 @app.route('/formulario_factura')
 def formulario_factura():
