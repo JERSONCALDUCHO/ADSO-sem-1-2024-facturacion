@@ -36,7 +36,7 @@ def inicio_sesion():
 def formulario_usuario():
     return render_template('formulario_usuario.html',titulo='Crear Usuario')
 
-@app.route('/formulario_producto')
+@app.route('/formulario_producto', methods=['GET','POST'])
 def formulario_producto():
     if request.method == 'POST':
         codigo = request.form.get('codigo')
