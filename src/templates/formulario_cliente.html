@@ -1,35 +1,34 @@
 {% extends 'layout.html' %}
 
 {% block contenido %}
-<!--Se crea validacion para los campos de nombre, apellido, numero telefonico y numero de documento-->
     <h2>{{ titulo }}</h2>   
-    <form>
+    <form action="/formulario_cliente" method="post">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="nombres_cliente">Nombres</label>
-            <input type="text" class="form-control" id="nombres_clientes" placeholder="Ingrese los nombres (dato único)"> 
+            <input type="text" class="form-control" id="nombres_cliente" name = "nombres_cliente" placeholder="Ingrese los nombres"> 
             <span class="alert alert-danger" role="alert" id="errorNombreCliente" style="display: none;">Ingrese los nombres del cliente</span>
           </div>
           <div class="form-group col-md-6">
             <label for="apellidos_cliente">Apellidos</label>
-            <input type="text" class="form-control" id="apellidos_cliente" placeholder="Ingrese los apellidos (dato único)"> 
+            <input type="text" class="form-control" id="apellidos_cliente" name = "apellidos_cliente" placeholder="Ingrese los apellidos"> 
             <span class="alert alert-danger" role="alert" id="errorApellidoCliente" style="display: none;">Ingrese los apellidos del cliente</span>
           </div>
           <div class="form-group col-md-6">
             <label for="numero_cliente">Numero del cliente</label>
-            <input type="number" class="form-control" id="numero_cliente" placeholder="Ingrese el numero"> 
+            <input type="number" class="form-control" id="numero_cliente" name = "numero_cliente" placeholder="Ingrese el numero celular"> 
             <span class="alert alert-danger" role="alert" id="errorNumeroCliete" style="display: none;">Ingrese el numero telefonico del cliente</span>
           </div>
           <div class="form-group col-md-6">
-            <label for="numero_cliente">Correo electronico del cliente</label>
-            <input type="text" class="form-control" id="correo_cliente" placeholder="Ingrese el correo">
+            <label for="email_cliente">Correo electronico del cliente</label>
+            <input type="text" class="form-control" id="email_cliente" name = "email_cliente" placeholder="Ingrese el correo electronico">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="documento_cliente">Tipo de documento</label>
-            <select id="documento_cliente" class="form-control">
+            <label for="tipo_documento_cliente">Tipo de documento</label>
+            <select id="tipo_documento_cliente" name = "tipo_documento_cliente" class="form-control">
               <option selected>Por favor seleccione...</option>
               <option value="CC">Cedula Ciudadania</option>
               <option value="CE">Cedula Extranjeria</option>
@@ -37,12 +36,12 @@
           </div>
           <div class="form-group col-md-6">
             <label for="num_documento_cliente">Numero de documento</label>
-            <input type="number" class="form-control" id="numero_documento" placeholder="Ingrese el numero de documento (dato único)"> 
+            <input type="number" class="form-control" id="num_documento_cliente" name = "num_documento_cliente" placeholder="Ingrese el numero de documento (dato único)"> 
             <span class="alert alert-danger" role="alert" id="errorNumDocumentoCliente" style="display: none;">Ingrese el numero del documento</span>
           </div>
           <div class="form-group col-md-6">
             <label for="nacimiento_cliente">Fecha de nacimiento</label>
-            <input type="date" class="form-control" id="nacimiento_cliente">
+            <input type="date" class="form-control" id="nacimiento_cliente" name = "nacimiento_cliente">
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>

@@ -2,7 +2,7 @@
 
 {% block contenido %}
     <h2>{{ titulo }}</h2>   
-    <form>
+    <form action="/formulario_factura" method="post">
       <table class="table">
         <tbody>
           <tr>
@@ -10,12 +10,13 @@
             <td>Cliente</td>
           </tr>
           <tr>
-            <td><input type="datetime-local" class="form-control" id="producto"></td>
+            <td><input type="datetime-local" class="form-control" id="fecha_hora" name="fecha_hora"></td>
             <td>
-              <select id="producto" class="form-control">
+              <select id="producto" class="form-control" name="cliente">
                 <option selected>Seleccione el cliente</option>
-                <option value="cliente_1">Cliente 1</option>
-                <option value="cliente_2">Cliente 2</option>
+                {% for cliente in clientes %}
+                <option value="{{cliente.id}}">{{cliente.num_documento_cliente}}</option>
+                {% endfor %}
             </td>
           </tr>
         </tbody>
@@ -29,12 +30,13 @@
           </tr>
           <tr>
             <td>
-              <select id="producto" class="form-control">
+              <select id="producto" class="form-control" name="producto">
                 <option selected>Seleccione el producto</option>
-                <option value="producto_1">Pan tajado bolsa 200 grs</option>
-                <option value="producto_2">Carne cerdo costilla</option>
+                {% for producto in productos %}
+                <option value="{{producto.id}}">{{producto.descripcion}}</option>
+                {% endfor %}
             </td>
-            <td><input type="float" class="form-control" id="producto"></td>
+            <td><input type="float" class="form-control" id="cantidad" name="cantidad"></td>
             <td>   </td>
             <td><button type="submit" class="btn btn-primary">Eliminar</button></td>
           </tr> 

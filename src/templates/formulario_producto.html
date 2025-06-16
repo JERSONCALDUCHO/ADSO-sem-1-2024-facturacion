@@ -1,28 +1,31 @@
 {% extends 'layout.html' %}
 
 {% block contenido %}
-<!--Se crea validacion para los campos de descripcion, cantidad y precio-->
     <h2>{{ titulo }}</h2>   
     <form action="/formulario_producto" method="post">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="codigo">Codigo</label>  
-            <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ejemplo: AAA000000" onblur="validarCodigo()"> 
-            <span class="alert alert-danger" role="alert" id="errorCodigo" style="display: none;">El codigo no cumple los requisitos</span>
+            <input type="text" class="form-control" id="codigo" name="codigo" {% if producto_almacenar %} value="{{ producto_almacenar.codigo }}" {% endif %} placeholder="Ejemplo: AAA000000" onblur="validarCodigo()"> 
+            {% if errorCodigoProducto %}
+            <span class="alert alert-danger" role="alert" id="errorCodigo"> {{ errorCodigoProducto }}</span>
+            {% endif %}
           </div>
           <div class="form-group col-md-6">
             <label for="descripcion">Descripción</label>
-            <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Describa el producto (dato único)"> 
-            <span class="alert alert-danger" role="alert" id="errorDescripcion" style="display: none;">Ingrese la descripcion</span>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" {% if producto_almacenar %} value="{{ producto_almacenar.descripcion }}" {% endif %} placeholder="Describa el producto (dato único)"> 
+            {% if errorProducto %}
+            <span class="alert alert-danger" role="alert" id="errorDescripcion"> {{ errorProducto }}</span>
+            {% endif %}
           </div>
           <div class="form-group col-md-6">
             <label for="cantidad_inventario">Cantidad Inventario</label>
-            <input type="number" class="form-control" id="cantidad_inventario" name="cantidad_inventario"> 
+            <input type="number" class="form-control" id="cantidad_inventario" name="cantidad_inventario" {% if producto_almacenar %} value="{{ producto_almacenar.cantidad_inventario }}" {% endif %}> 
             <span class="alert alert-danger" role="alert" id="errorCantidadProducto" style="display: none;">Ingrese la cantidad del producto</span>
           </div>
           <div class="form-group col-md-6">
             <label for="precio_unitario">Precio Unitario</label>
-            <input type="number" class="form-control" id="precio_unitario" name="precio_unitario"> 
+            <input type="number" class="form-control" id="precio_unitario" name="precio_unitario" {% if producto_almacenar %} value="{{ producto_almacenar.precio_unitario }}" {% endif %}> 
             <span class="alert alert-danger" role="alert" id="errorPrecio" style="display: none;">Ingrese el precio del producto</span>
           </div>
         </div>
@@ -40,8 +43,9 @@
             <label for="categoria">Categoria</label>
             <select id="categoria" name="categoria" class="form-control">
               <option selected>Por favor seleccione...</option>
-              <option value="1">Alimentos</option>
-              <option value="2">Ropa</option>
+              {% for categoria in categorias %}
+              <option value="{{categoria.id}}">{{categoria.nombre_categoria}}</option>
+              {% endfor %}
             </select>
           </div>
         </div>

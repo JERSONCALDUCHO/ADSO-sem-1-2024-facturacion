@@ -6,7 +6,8 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">#Cliente</th>
-        <th scope="col">Nombre completo</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
         <th scope="col">Tipo de documento</th>
         <th scope="col">Numero documento</th>
         <th scope="col">Numero telefonico</th>
@@ -15,18 +16,21 @@
       </tr>
     </thead>
     <tbody>
+      {% for cliente in clientes %}
       <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th scope="row">{{cliente.id}}</th>
+        <td>{{cliente.nombres_cliente}}</td>
+        <td>{{cliente.apellidos_cliente}}</td>
+        <td>{{cliente.tipo_documento_cliente}}</td>
+        <td>{{cliente.num_documento_cliente}}</td>
+        <td>{{cliente.numero_cliente}}</td>
+        <td>{{cliente.email_cliente}}</td>
         <td>
           <button type="button" class="btn btn-success">Editar</button>
           <button type="button" class="btn btn-danger">Borrar</button>
         </td>
       </tr>
+      {% endfor %}
     </tbody>
   </table>
 {% endblock contenido %}
