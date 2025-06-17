@@ -4,7 +4,7 @@ from src.models.clientes import Clientes
 from src.models.productos import Productos
 
 class Facturas(Base):
-    __tablename__ = "factura"
+    __tablename__ = "facturas"
     id = Column (Integer, primary_key=True)
     fecha_hora = Column (DateTime, nullable=False)
     id_cliente = Column (Integer, ForeignKey('clientes.id'), nullable=False)
@@ -21,3 +21,7 @@ class Facturas(Base):
         factura = session.add(factura)
         session.commit()
         return factura
+    
+    def traer_facturas():
+        facturas = session.query(Facturas).all()
+        return facturas
